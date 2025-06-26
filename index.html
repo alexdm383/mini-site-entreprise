@@ -3,39 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Mini-site Entreprise</title>
-     <link rel="stylesheet" href="style.css">
+    <title>Bijoux Précieux - Élégance et Raffinement</title>
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-    
-    
-        <h1>Bienvenue sur notre site !</h1>
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#services">Nos Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <!-- En-tête du site -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><a href="#">Bijoux Précieux</a></h1>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#collections">Collections</a></li>
+                    <li><a href="#nouveautes">Nouveautés</a></li>
+                    <li><a href="#temoignages">Témoignages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Bouton pour le menu burger sur mobile -->
+            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+        </div>
     </header>
-    <main>
-        <section id="accueil">
-            <h2>Page d'accueil</h2>
-            <p>Contenu de la page d'accueil de l'entreprise.</p>
-        </section>
-        <section id="services">
-            <h2>Nos Services</h2>
-            <p>Découvrez ce que nous offrons.</p>
-        </section>
-        <section id="contact">
-            <h2>Contactez-nous</h2>
-            <p>Pour toute question ou information.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Mini-site Entreprise</p>
-    </footer>
-    <script src="script.js"></script>
 
+    <!-- Section Héro / Bannière principale -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h2>L'Élégance Capturée pour Vous</h2>
+            <p>Découvrez nos collections uniques de bijoux faits à la main, conçus pour briller.</p>
+            <a href="#collections" class="btn btn-primary">Explorer les Collections</a>
+        </div>
+    </section>
+
+    <!-- Section Nos Collections -->
+    <section id="collections" class="section collections">
+        <div class="container">
+            <h3>Nos Collections Exclusives</h3>
+            <div class="collection-grid">
+                <div class="collection-item">
+                    <img src="https://placehold.co/400x300/F0E68C/000000?text=Collier+Or" alt="Colliers en Or">
+                    <h4>Colliers Éclatants</h4>
+                    <p>Sublimez votre cou avec nos créations en or pur.</p>
+                    <a href="#" class="btn btn-secondary">Voir la Collection</a>
+                </div>
+                <div class="collection-item">
+                    <img src="https://placehold.co/400x300/B8860B/FFFFFF?text=Bague+Diamant" alt="Bagues avec Diamants">
+                    <h4>Bagues Étincelantes</h4>
+                    <p>Des bagues uniques, symboles d'amour et d'élégance.</p>
+                    <a href="#" class="btn btn-secondary">Voir la Collection</a>
+                </div>
+                <div class="collection-item">
+                    <img src="https://placehold.co/400x300/000000/FFD700?text=Boucles+Argent" alt="Boucles d'oreilles en Argent">
+                    <h4>Boucles d'Oreilles</h4>
+                    <p>Ajoutez une touche de sophistication à votre visage.</p>
+                    <a href="#" class="btn btn-secondary">Voir la Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Nouveautés (avec carrousel simple) -->
+    <section id="nouveautes" class="section nouveautes">
+        <div class="container">
+            <h3>Nouveautés</h3>
+            <div class="carousel-container">
+                <div class="carousel-slides">
+                    <img src="https://placehold.co/600x400/FFFFFF/000000?text=Nouveaute+1" alt="Nouveauté 1">
+                    <img src="https://placehold.co/600x400/FFD700/000000?text=Nouveaute+2" alt="Nouveauté 2">
+                    <img src="https://placehold.co/600x400/000000/FFD700?text=Nouveaute+3" alt="Nouveauté 3">
+                </div>
+                <!-- Boutons de navigation du carrousel -->
+                <button class="carousel-nav prev">❮</button>
+                <button class="carousel-nav next">❯</button>
+            </div>
+            <p class="carousel-description">Découvrez nos dernières créations, des pièces uniques ajoutées récemment.</p>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section id="temoignages" class="section temoignages">
+        <div class="container">
+            <h3>Ce que disent nos clients</h3>
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <p>"Des bijoux d'une qualité exceptionnelle et un service client impeccable. Je suis ravie de mon achat !"</p>
+                    <span>- Sarah L.</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"J'ai trouvé la bague de fiançailles parfaite ici. Le design est sublime et unique."</p>
+                    <span>- Marc D.</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Une expérience d'achat agréable, des pièces magnifiques qui correspondent exactement à ce que je cherchais."</p>
+                    <span>- Clara B.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h3>Nous Contacter</h3>
+            <p>Avez-vous des questions ? N'hésitez pas à nous contacter.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Votre Nom" required>
+                <input type="email" placeholder="Votre Email" required>
+                <textarea placeholder="Votre Message" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">Envoyer le Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Bijoux Précieux. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">F</a>
+                <a href="#" aria-label="Instagram">I</a>
+                <a href="#" aria-label="Twitter">T</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lien vers le fichier JavaScript -->
+    <script src="script.js"></script>
+</body>
 </html>
