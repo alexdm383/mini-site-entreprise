@@ -1,35 +1,484 @@
+/* Variables de couleurs */
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gold-light: #FFD700; /* Or standard */
+    --color-gold-dark: #B8860B; /* Or plus foncé pour accents */
+    --color-gray-text: #555;
+    --font-primary: 'Inter', sans-serif; /* Assurez-vous que Inter est disponible ou utilisez une alternative */
+}
+
+/* Réinitialisation de base */
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-primary);
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
-    color: #333;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    overflow-x: hidden; /* Empêche le défilement horizontal indésirable */
 }
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* En-tête */
+.header {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--color-gold-dark); /* Accent doré en bas de l'en-tête */
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.logo a {
+    color: var(--color-gold-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: var(--color-white);
+}
+
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-menu li {
+    margin-left: 30px;
+}
+
+.nav-menu a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--color-gold-light);
+}
+
+.menu-toggle {
+    display: none; /* Masqué par défaut sur desktop */
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 2em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: var(--color-gold-light);
+}
+
+/* Section Héro */
+.hero {
+    background: url('https://placehold.co/1920x800/000000/FFD700?text=Bijoux+Elegants') no-repeat center center/cover;
+    color: var(--color-white);
+    text-align: center;
+    padding: 150px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px; /* Hauteur minimale pour la section héro */
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.5); /* Ombre interne pour profondeur */
+}
+
+.hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--color-gold-light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre portée sur le texte */
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    max-width: 700px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Boutons génériques */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px; /* Coins arrondis */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--color-gold-light);
+    color: var(--color-black);
+    border: 2px solid var(--color-gold-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-gold-dark);
+    color: var(--color-white);
+    border-color: var(--color-gold-dark);
+    transform: translateY(-3px); /* Effet léger de survol */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: var(--color-black);
+    color: var(--color-gold-light);
+    border: 2px solid var(--color-gold-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-gold-dark);
+    color: var(--color-white);
+    border-color: var(--color-gold-dark);
+    transform: translateY(-3px); /* Effet léger de survol */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Sections générales */
+.section {
+    padding: 80px 0;
     text-align: center;
 }
-nav ul {
-    padding: 0;
-    list-style: none;
+
+.section h3 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: var(--color-gold-dark);
+    position: relative;
+    padding-bottom: 10px;
 }
-nav ul li {
-    display: inline;
-    margin-right: 20px;
+
+.section h3::after { /* Ligne décorative sous les titres de section */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-gold-light);
+    border-radius: 2px;
 }
-nav a {
-    color: #fff;
-    text-decoration: none;
+
+/* Section Collections */
+.collections {
+    background-color: var(--color-white);
 }
-main {
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.collection-item {
+    background-color: var(--color-black);
     padding: 20px;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: var(--color-white);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--color-gold-dark); /* Bordure discrète */
 }
-section {
+
+.collection-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.collection-item img {
+    max-width: 100%;
+    height: 250px; /* Hauteur fixe pour les images */
+    object-fit: cover; /* Recadre l'image pour couvrir l'espace */
+    border-radius: 8px; /* Coins arrondis pour les images */
+    margin-bottom: 15px;
+    border: 2px solid var(--color-gold-light);
+    transition: transform 0.3s ease;
+}
+
+.collection-item img:hover {
+    transform: scale(1.03); /* Léger zoom sur l'image au survol */
+}
+
+.collection-item h4 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: var(--color-gold-light);
+}
+
+.collection-item p {
+    color: var(--color-white);
     margin-bottom: 20px;
+}
+
+/* Section Nouveautés (Carrousel) */
+.nouveautes {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.nouveautes h3 {
+    color: var(--color-gold-light);
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    overflow: hidden;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--color-gold-dark); /* Bordure élégante pour le carrousel */
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slides img {
+    width: 100%;
+    display: block;
+    border-radius: 10px; /* Coins arrondis */
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Plus opaque */
+    color: var(--color-white);
+    border: none;
     padding: 15px;
-    background: #fff;
-    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.carousel-nav:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--color-gold-light);
+}
+
+.carousel-nav.prev {
+    left: 10px;
+}
+
+.carousel-nav.next {
+    right: 10px;
+}
+
+.carousel-description {
+    font-size: 1.1em;
+    color: var(--color-gold-light);
+    font-style: italic;
+}
+
+
+/* Section Témoignages */
+.temoignages {
+    background-color: var(--color-white);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.testimonial-item {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    position: relative;
+    border: 1px solid var(--color-gold-dark); /* Bordure discrète */
+}
+
+.testimonial-item p {
+    margin-bottom: 15px;
+    color: var(--color-white);
+}
+
+.testimonial-item span {
+    display: block;
+    text-align: right;
+    font-weight: bold;
+    color: var(--color-gold-light);
+}
+
+/* Section Contact */
+.contact {
+    background-color: var(--color-gold-light);
+    color: var(--color-black);
+}
+
+.contact h3 {
+    color: var(--color-black);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 50px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-black);
+    border-radius: 8px; /* Coins arrondis */
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-family: var(--font-primary);
+    font-size: 1em;
+}
+
+.contact-form input[type="text"]::placeholder,
+.contact-form input[type="email"]::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--color-gray-text);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .btn-primary {
+    background-color: var(--color-black);
+    color: var(--color-gold-light);
+    border-color: var(--color-black);
+    align-self: center; /* Centrer le bouton */
+    width: auto;
+    padding: 12px 40px;
+}
+
+.contact-form .btn-primary:hover {
+    background-color: var(--color-gray-text);
+    color: var(--color-white);
+    border-color: var(--color-gray-text);
+}
+
+/* Pied de page */
+.footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--color-gold-dark); /* Accent doré en haut du pied de page */
+}
+
+.footer .social-links a {
+    color: var(--color-white);
+    font-size: 1.5em;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer .social-links a:hover {
+    color: var(--color-gold-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header .container {
+        flex-wrap: wrap;
+    }
+
+    .nav-menu {
+        display: none; /* Masqué par défaut sur mobile */
+        width: 100%;
+        order: 3; /* Positionne le menu en dessous du logo et du bouton */
+    }
+
+    .nav-menu.active {
+        display: block; /* Affiche le menu quand il est actif */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        background-color: var(--color-black);
+        padding-top: 10px;
+    }
+
+    .nav-menu li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 15px 20px;
+        text-align: left;
+    }
+
+    .menu-toggle {
+        display: block; /* Affiché sur mobile */
+    }
+
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .collection-grid,
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 0.9em;
+    }
 }
